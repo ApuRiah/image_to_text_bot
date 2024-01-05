@@ -2,7 +2,23 @@
 # Storage path file image in dictionary
 
 my_database = {}
+#save your chooosing languge
+my_languge = {}
+def insert_languge(chat_id:int, message_id:int, Mlanguge:str) -> None:
+    try:
+        my_languge[chat_id][message_id] = Mlanguge
+    except KeyError:
+        my_languge[chat_id] = {}
+        my_languge[chat_id][message_id] = "Eng"
 
+def get_languge(chat_id:int, message_id:int):
+    try:
+        Mlanguge = my_languge[chat_id][message_id]
+        if Mlanguge is None :
+            return "Eng"
+        return Mlanguge
+    except KeyError:
+        return "Eng"
 #Save file path img chat_id:massege_id:file path
 def insert_file_path(chat_id:int, message_id:int, file_path:str) -> None:
     try:

@@ -18,7 +18,6 @@ logger = logging.getLogger(__name__)
 
 
 def main():
-   # updater = Updater("6515139562:AAFjM1fQ-uuMVFLrwEVA7k9SV6liRujIvHo",use_context=True)
     updater = Updater(token, use_context=True)
     updater.bot.set_my_commands([("start","start the bot"),("help","Get list of commands")])
     dp=updater.dispatcher
@@ -29,7 +28,6 @@ def main():
     dp.add_handler(MessageHandler(Filters.photo, extract_image,run_async=True))
     dp.add_handler(MessageHandler(Filters.command,invalid_command,run_async=True))
     dp.add_handler(CallbackQueryHandler(button_click,run_async=True))
-
     updater.start_polling(drop_pending_updates=True)
     print("Bot is running")
     updater.idle()

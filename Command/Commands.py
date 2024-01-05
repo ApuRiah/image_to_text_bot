@@ -9,7 +9,9 @@ def help(update:Update,context:CallbackContext):
     update.message.reply_text(
         "List of commands available:\
         \n/start - To start the bot\
-        \n/help - To show this message",quote=True
+        \n/help - To show this message \
+        \n/about - To about  the developer\
+        \n/languge -To choose the language ",quote=True
     )
 
 #command is not found
@@ -35,13 +37,12 @@ def about(update:Update,context:CallbackContext):
     update.message.reply_text('Hi! '+str(first)+' \n\nI am Developer. Apu Riah  . \n\n if you want help @EngApuReah93BOT \n or Learn https://t.me/Info_Eng_Society !',quote=True)
 
 #command /languge
+
 @send_typing_action
 def languge(update:Update,context:CallbackContext):
     """Send a message when the command /start is issued."""
     keyboard = [
-        [InlineKeyboardButton("English ", callback_data='eng'), InlineKeyboardButton("Russian", callback_data='rus'),
-         InlineKeyboardButton("Arabic", callback_data='ara')]]
+        [InlineKeyboardButton("English ", callback_data='Eng'), InlineKeyboardButton("Russian", callback_data='Rus'),
+         InlineKeyboardButton("Arabic", callback_data='Ara')]]
     reply_markup = InlineKeyboardMarkup(keyboard)
     m = update.message.reply_text('Select Language : ', reply_markup=reply_markup, quote=True)
-    chat_id=m.chat_id
-    message_id=m.message_id
