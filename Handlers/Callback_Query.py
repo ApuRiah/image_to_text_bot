@@ -5,7 +5,7 @@ from Config import API_KEY as key
 from telegram.ext import CallbackContext
 from Help.My_Database import get_file_path,insert_languge
 
-#key="K81610801188957"
+
 
 @send_typing_action
 def button_click(update:Update,context:CallbackContext):
